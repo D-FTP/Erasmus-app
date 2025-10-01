@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="el">
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="styles/mycss.css">
+		<title>Απαιτήσεις Erasmus Portal</title>
+		<style>
+			td#un{text-decoration: underline; text-align:center; font-size: 115%}
+		</style>
+	</head>
+	<body>
+		<div class="row header">
+			<div class="col-12">
+				<h1>Ελάχιστες Απαιτήσεις Συμμετοχής στο Erasmus+</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-3  col-lg-3 menu">
+				<ul>
+					<li><a href="index.php">Αρχική</a></li>
+					<li><a href="more.html">Περισσότερα</a></li>
+					<li><a href="reqs.html">Απαιτήσεις</a></li>
+					<li><a href="sign-up.php">Εγγραφή</a></li>
+					<li><a href="login.php">Σύνδεση</a></li>
+					<b>Ο λογαριασμός μου:</b>
+					<ul>
+					  <li><a href="application.php">Αίτηση</a></li>
+					  <li><a href="profile.php">Profile</a></li>
+					</ul>
+				</ul>
+			</div>
+			<div class="col-12 col-md-9  col-lg-9">
+				<div class="requirements-table">
+					<table>
+						<tr><th>Κριτήριο</th><th>Απαίτηση</th></tr>
+						<tr><td>Τρέχον έτος σπουδών:</td><td>2ο</td></tr>
+						<tr><td>Πτυχίο αγγλικής γλώσσας:</td><td>B2 (lower)</td></th>
+						<tr><td id="un" colspan="2">Μαθήματα:</td></U></tr>
+						<tr><td>Ποσοστό περασμένων:</td><td>70%</td></tr>
+						<tr><td>Μέσος όρος βαθμολογίας:</td><td>6.50</td></tr>
+					</table>
+				</div>
+			</div>
+			<div class=" col-12 col-md-12 col-lg-12">
+				<div class="form-box">
+					<h2>φόρμα αυτόματου ελέγχου πληρότητας των ελάχιστων απαιτήσεων</h2>
+					<form onsubmit="return validateForm()">
+						<label for="year_list">Έτος σπουδών:</label><br>
+						<input list="A" name="year_list" id="year_list"><br><br>
+						<datalist id="A">
+							<option value="1ο">
+							<option value="2ο">
+							<option value="3ο">
+							<option value="4ο">
+							<option value="μεγαλύτερο">
+						</datalist>
+						<label for="amount">Ποσοστό «περασμένων μαθημάτων»:</label><br>
+						<input type="number" name="passed_percent" id="passed_percent" min="0" max="100" step="0.1" placeholder="%"><br><br>
+						<label for="grade">Μέσος όρος των «περασμένων μαθημάτων»:</label><br>
+						<input type="number" name="avg_grade" id="avg_grade" min="5" max="10" step="0.01" placeholder="5-10"><br><br>
+						<label for="english_list">Πιστοποιητικό γνώσης της αγγλικής γλώσσας:</label><br>
+						<input list="B" name="english_list" id="english_list"><br><br>
+						<datalist id="B">
+							<option value="A1">
+								<option value="A2">
+								<option value="B1">
+								<option value="B2">
+								<option value="C1">
+								<option value="C2">
+						</datalist>
+						<input type="submit" value="Υποβολή">
+					</form>
+				</div>
+			</div>
+		</div>
+		<script>
+			function validateForm() {
+				const year = document.getElementById("year_list").value.trim();
+				const passed = parseFloat(document.getElementById("passed_percent").value.trim());
+				const grade = parseFloat(document.getElementById("avg_grade").value.trim());
+				const certificate = document.getElementById("english_list").value.trim();
+
+				if (year == "1ο") {
+					alert("Το έτος σπουδών πρέπει να είναι 2ο ή μεγαλύτερο.");
+					return false;
+				}
+
+				if (passed < 70) {
+					alert("Το ποσοστό περασμένων μαθημάτων πρέπει να είναι τουλάχιστον 70%");
+					return false;
+				}
+
+				if (grade < 6.5) {
+					alert("Ο μέσος όρος βαθμολογίας πρέπει να είναι τουλάχιστον 6.5");
+					return false;
+				}
+
+				if (certificate != "B2" && certificate != "C1" && certificate != "C2") {
+					alert("Το πιστοποιητικό αγγλικών πρέπει να είναι B2, C1 ή C2.");
+					return false;
+				}
+
+				alert("Τηρείς τις ελάχιστες προϋποθέσεις για αίτηση στο Erasmus+.");
+				return true;
+			}
+		</script>
+   </body>
+</html>
