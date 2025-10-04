@@ -1,3 +1,5 @@
+University project for third year's Design of Web Applications & Services class
+#3-student team
 Εγκατάσταση και ρύθμιση XAMPP: 
 Η έκδοση του προγράμματος πρέπει να είναι συμβατή με αυτή του λειτουργικού 
 συστήματος του χρήστη. Η εγκατάσταση του λογισμικού πρέπει να γίνει από τον παρακάτω 
